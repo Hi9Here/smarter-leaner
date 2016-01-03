@@ -1,0 +1,117 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<dom-module id="gh-issues">
+  <template>
+    <style>
+    paper-material {
+      padding: 20px;
+      width: 200px;
+      height: 75px;
+      margin: 10px;
+      font-family: Roboto, Helvetica, sans-serif;
+      font-weight: 300;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    h3 {
+      font-family: Roboto, Helvetica, sans-serif;
+      color: #333;
+      margin: 10px;
+      font-weight: 300;
+    }
+
+    .column-group {
+      float: left;
+      margin-left: 20px;
+    }
+
+    .assigned {
+      margin-top: 20px;
+      font-size: 12px;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
+    </style>
+    <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}">
+    </iron-ajax>
+    <div id="col1" class="column-group">
+      <h3>Issues</h3>
+      <template is="dom-repeat" items="{{response}}">
+        <a href="{{item.html_url}}">
+        <paper-material elevation="1">
+          <div>
+            {{item.title}}
+          </div>
+          <div class="issuelabels">
+            {{item.labels.name}}
+          </div>
+          <div class="assigned">
+            <!-- {{item.labels}} -->
+            {{item.assignee.login}}
+          </div>
+        </paper-material>
+        </a>
+      </template>
+    </div>
+    <div id="col2" class="column-group">
+      <h3>Working On</h3>
+      <template is="dom-repeat" items="{{response}}">
+        <paper-material elevation="1">
+          <div>
+            <a href="{{item.html_url}}">{{item.title}}</a>
+          </div>
+        </paper-material>
+      </template>
+    </div>
+    <div id="col3" class="column-group">
+      <h3>Done</h3>
+      <template is="dom-repeat" items="{{response}}">
+        <paper-material elevation="1">
+          <div>
+            <a href="{{item.html_url}}">{{item.title}}</a>
+          </div>
+        </paper-material>
+      </template>
+    </div>
+    <div id="col4" class="column-group">
+      <h3>Review</h3>
+      <template is="dom-repeat" items="{{response}}">
+        <paper-material elevation="1">
+          <div>
+            <a href="{{item.html_url}}">{{item.title}}</a>
+          </div>
+        </paper-material>
+      </template>
+    </div>
+  </template>
+</dom-module>
+<script>
+Polymer({
+  is: 'gh-issues',
+
+  properties: {
+    owner: {
+      value: 'HackITtoday',
+      notify: true
+    },
+    repo: {
+      value: 'hi9',
+      notify: true
+    },
+    url: {
+      computed: 'computeUrl(owner, repo)'
+    }
+  },
+
+  computeUrl: function(owner, repo) {
+    return ['https://api.github.com/repos', owner, repo, 'issues'].join('/');
+  }
+
+});
+</script>
