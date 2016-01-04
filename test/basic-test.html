@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../gh-issues.html">
+</head>
+
+<body>
+  <!-- You can use the document as a place to set up your fixtures. -->
+  <test-fixture id="ghIssues">
+    <template>
+      <gh-issues></gh-issues>
+    </template>
+  </test-fixture>
+  <script>
+  suite('<gh-issues>', function() {
+
+    var myEl;
+
+    setup(function() {
+      myEl = fixture('ghIssues');
+    });
+
+    // test('first h3 says Issues', function() {
+    //   Polymer.dom(myEl.root).querySelector('h3');
+    //   assert.equal(myEl.h3, 'Issues');
+    // });
+
+  });
+  </script>
+</body>
+
+</html>
