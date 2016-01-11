@@ -12,26 +12,25 @@
 
 <body>
   <!-- You can use the document as a place to set up your fixtures. -->
-  <test-fixture id="ghIssues">
+  <test-fixture id="basic">
     <template>
       <gh-issues></gh-issues>
     </template>
   </test-fixture>
   <script>
-  suite('<gh-issues>', function() {
+    suite('gh-issues tests', function() {
+      var ghIssues, header;
 
-    var myEl;
+      setup(function() {
+        ghIssues = fixture('basic');
+      });
 
-    setup(function() {
-      myEl = fixture('ghIssues');
+      test('Github Issues Board', function() {
+        header = ghIssues.querySelector('h2');
+        assert.equal(header.textContent, 'Github Issues Board');
+      });
+
     });
-
-    // test('first h3 says Issues', function() {
-    //   Polymer.dom(myEl.root).querySelector('h3');
-    //   assert.equal(myEl.h3, 'Issues');
-    // });
-
-  });
   </script>
 </body>
 
