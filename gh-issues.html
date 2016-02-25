@@ -41,7 +41,7 @@
     <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}">
     </iron-ajax>
     <h2>Github Issues Board</h2>
-    <h3><span>[[url]]</span></h3>
+    <h3><span>{{url}}</span></h3>
     <div id="col1" class="column-group">
       <h3>Issues</h3>
       <template is="dom-repeat" items="{{response}}">
