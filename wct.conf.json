@@ -15,7 +15,7 @@
         {
           "browserName": "chrome",
           "platform": "Windows 10",
-          "version": "48"
+          "version": ""
         },
         {
           "browserName": "safari",
