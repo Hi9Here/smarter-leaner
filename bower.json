@@ -1,5 +1,5 @@
 {
-  "name": "gh-issues",
+  "name": "smarter-leaner",
   "version": "1.0.3",
   "authors": [
     "Anonymous <anonymous@example.com>"
@@ -10,7 +10,7 @@
     "polymer",
     "seed"
   ],
-  "main": "gh-issues.html",
+  "main": "smarter-leaner.html",
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/<USERNAME>/seed-element/",
   "ignore": [

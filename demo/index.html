@@ -12,23 +12,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>gh-issues Demo</title>
+    <title>smarter-leaner Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../gh-issues.html">
+    <link rel="import" href="../smarter-leaner.html">
   </head>
   <body unresolved>
 
-    <p>An example of <code>&lt;gh-issues&gt;</code>:</p>
+    <p>An example of <code>&lt;smarter-leaner&gt;</code>:</p>
 
     <p>Make words! <button id="saybtn">Say Something</button></p>
     <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
 
-    <gh-issues author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy>
-      <h2>Hello gh-issues</h2>
-    </gh-issues>
+    <smarter-leaner author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy>
+      <h2>Hello smarter-leaner</h2>
+    </smarter-leaner>
 
     <script>
-      var seedElement = document.querySelector('gh-issues');
+      var seedElement = document.querySelector('smarter-leaner');
       
       document.querySelector('#saybtn').addEventListener('click', function() {
         alert(seedElement.sayHello('Hallo!'));
@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         seedElement.fireLasers();
       });
       
-      document.addEventListener("gh-issues-lasers", function(e) {
+      document.addEventListener("smarter-leaner-lasers", function(e) {
         console.log(e.detail.sound);
       });
       
