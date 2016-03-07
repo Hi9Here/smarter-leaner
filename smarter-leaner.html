@@ -1,119 +1,151 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-input/paper-input.html">
+
 <dom-module id="smarter-leaner">
   <template>
     <style>
-    paper-material {
-      padding: 20px;
-      width: 200px;
-      height: 75px;
-      margin: 10px;
-      font-family: Roboto, Helvetica, sans-serif;
-      font-weight: 300;
-    }
+      paper-material {
+        padding: 20px;
+        width: 200px;
+        height: 75px;
+        margin: 10px;
+        font-family: Roboto, Helvetica, sans-serif;
+        font-weight: 300;
+      }
 
-    a {
-      text-decoration: none;
-      color: #333;
-    }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
 
-    h3 {
-      font-family: Roboto, Helvetica, sans-serif;
-      color: #333;
-      margin: 10px;
-      font-weight: 300;
-    }
+      h3 {
+        font-family: Roboto, Helvetica, sans-serif;
+        color: #333;
+        margin: 10px;
+        font-weight: 300;
+      }
 
-    .column-group {
-      float: left;
-      margin-left: 20px;
-    }
+      .column-group {
+        float: left;
+        margin-left: 20px;
+      }
 
-    .assigned {
-      margin-top: 20px;
-      font-size: 12px;
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-    }
+      .assigned {
+        margin-top: 20px;
+        font-size: 12px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+
+      paper-input {
+        width: 40%;
+        float: left;
+        margin-right: 20px;
+      }
+      #input {
+        float: left;
+        margin-left: 50px;
+        margin-bottom: 20px;
+        clear: right;
+      }
+      #cols {
+        float: left;
+        clear: left;
+      }
+      h2 {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        weight: 300;
+      }
+      #headTitle {
+        margin-left: 50px;
+      }
     </style>
     <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}">
     </iron-ajax>
-    <h2>Smarter Leaner</h2>
-    <h3><span>{{url}}</span></h3>
-    <div id="col1" class="column-group">
-      <h3>Story</h3>
-      <template is="dom-repeat" items="{{response}}">
-        <a href="{{item.html_url}}">
-        <paper-material elevation="1">
-          <div>
-            {{item.title}}
-          </div>
-          <div class="issuelabels">
-            {{item.labels.name}}
-          </div>
-          <div class="assigned">
-            <!-- {{item.labels}} -->
-            {{item.assignee.login}}
-          </div>
-        </paper-material>
-        </a>
-      </template>
+    <div id="headTitle">
+      <h2>Smarter Leaner</h2>
     </div>
-    <div id="col2" class="column-group">
-      <h3>Active</h3>
-      <template is="dom-repeat" items="{{response}}">
-        <paper-material elevation="1">
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
-        </paper-material>
-      </template>
+    <div id="input">
+      <paper-input label="Github Owner" value="{{owner}}"></paper-input>
+      <paper-input label="Github Repo" value={{repo}}></paper-input>
     </div>
-    <div id="col3" class="column-group">
-      <h3>Review</h3>
-      <template is="dom-repeat" items="{{response}}">
-        <paper-material elevation="1">
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
-        </paper-material>
-      </template>
-    </div>
-    <div id="col4" class="column-group">
-      <h3>Done</h3>
-      <template is="dom-repeat" items="{{response}}">
-        <paper-material elevation="1">
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
-        </paper-material>
-      </template>
+    <div id="cols">
+      <div id="col1" class="column-group">
+        <h3>Story</h3>
+        <template is="dom-repeat" items="{{response}}">
+          <a href="{{item.html_url}}">
+            <paper-material elevation="1">
+              <div>
+                {{item.title}}
+              </div>
+              <div class="issuelabels">
+                {{item.labels.name}}
+              </div>
+              <div class="assigned">
+                <!-- {{item.labels}} -->
+                {{item.assignee.login}}
+              </div>
+            </paper-material>
+          </a>
+        </template>
+      </div>
+      <div id="col2" class="column-group">
+        <h3>Active</h3>
+        <template is="dom-repeat" items="{{response}}">
+          <paper-material elevation="1">
+            <div>
+              <a href="{{item.html_url}}">{{item.title}}</a>
+            </div>
+          </paper-material>
+        </template>
+      </div>
+      <div id="col3" class="column-group">
+        <h3>Review</h3>
+        <template is="dom-repeat" items="{{response}}">
+          <paper-material elevation="1">
+            <div>
+              <a href="{{item.html_url}}">{{item.title}}</a>
+            </div>
+          </paper-material>
+        </template>
+      </div>
+      <div id="col4" class="column-group">
+        <h3>Done</h3>
+        <template is="dom-repeat" items="{{response}}">
+          <paper-material elevation="1">
+            <div>
+              <a href="{{item.html_url}}">{{item.title}}</a>
+            </div>
+          </paper-material>
+        </template>
+      </div>
     </div>
   </template>
 </dom-module>
 <script>
-Polymer({
-  is: 'smarter-leaner',
+  Polymer({
+    is: 'smarter-leaner',
 
-  properties: {
-    owner: {
-      value: 'Hi9Here',
-      notify: true
+    properties: {
+      owner: {
+        type: String,
+        notify: true
+      },
+      repo: {
+        type: String,
+        notify: true
+      },
+      url: {
+        computed: 'computeUrl(owner, repo)'
+      }
     },
-    repo: {
-      value: 'hi9-',
-      notify: true
-    },
-    url: {
-      computed: 'computeUrl(owner, repo)'
+
+    computeUrl: function(owner, repo) {
+      return ['https://api.github.com/repos', owner, repo, 'issues'].join('/');
     }
-  },
 
-  computeUrl: function(owner, repo) {
-    return ['https://api.github.com/repos', owner, repo, 'issues'].join('/');
-  }
-
-});
+  });
 </script>

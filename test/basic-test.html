@@ -19,15 +19,15 @@
   </test-fixture>
   <script>
     suite('smarter-leaner tests', function() {
-      var ghIssues, header;
+      var smLeaner, header;
 
       setup(function() {
-        ghIssues = fixture('basic');
+        smLeaner = fixture('basic');
       });
 
-      test('Github Issues Board', function() {
-        header = ghIssues.querySelector('h2');
-        assert.equal(header.textContent, 'Github Issues Board');
+      test('Smarter Leaner is the header', function() {
+        header = smLeaner.querySelector('h2');
+        assert.equal(header.textContent, 'Smarter Leaner');
       });
 
     });
