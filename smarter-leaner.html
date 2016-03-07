@@ -138,10 +138,14 @@ Polymer({
 
   properties: {
     owner: {
-      value: 'Hi9Here'
+      type: String,
+      value: 'Hi9Here',
+      notify: true
     },
     repo: {
-      value: 'hi9-'
+      type: String,
+      value: 'hi9-',
+      notify: true
     },
     url: {
       computed: 'computeUrl(owner, repo)'
