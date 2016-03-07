@@ -43,7 +43,7 @@
     <h2>Smarter Leaner</h2>
     <h3><span>{{url}}</span></h3>
     <div id="col1" class="column-group">
-      <h3>Issues</h3>
+      <h3>Story</h3>
       <template is="dom-repeat" items="{{response}}">
         <a href="{{item.html_url}}">
         <paper-material elevation="1">
@@ -62,7 +62,7 @@
       </template>
     </div>
     <div id="col2" class="column-group">
-      <h3>Working On</h3>
+      <h3>Active</h3>
       <template is="dom-repeat" items="{{response}}">
         <paper-material elevation="1">
           <div>
@@ -72,7 +72,7 @@
       </template>
     </div>
     <div id="col3" class="column-group">
-      <h3>Complete</h3>
+      <h3>Review</h3>
       <template is="dom-repeat" items="{{response}}">
         <paper-material elevation="1">
           <div>
@@ -82,7 +82,7 @@
       </template>
     </div>
     <div id="col4" class="column-group">
-      <h3>Review</h3>
+      <h3>Done</h3>
       <template is="dom-repeat" items="{{response}}">
         <paper-material elevation="1">
           <div>
@@ -99,11 +99,11 @@ Polymer({
 
   properties: {
     owner: {
-      value: 'HackITtoday',
+      value: 'Hi9Here',
       notify: true
     },
     repo: {
-      value: 'hi9',
+      value: 'hi9-',
       notify: true
     },
     url: {
