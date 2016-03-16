@@ -1,9 +1,6 @@
 {
   "name": "smarter-leaner",
   "version": "1.0.3",
-  "authors": [
-    "Anonymous <anonymous@example.com>"
-  ],
   "description": "An element providing a solution to no problem in particular.",
   "keywords": [
     "web-component",
@@ -20,7 +17,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-ajax": "Polymerelements/iron-ajax#~1.1.1",
-    "paper-input": "PolymerElements/paper-input#~1.1.9"
+    "paper-input": "PolymerElements/paper-input#~1.1.9",
+    "add-data": "marcus7777/add-data"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
