@@ -93,7 +93,6 @@ Example:
             {{item.labels.name}}
           </div>
           <div class="assigned">
-            <!-- {{item.labels}} -->
             {{item.assignee.login}}
           </div>
         </paper-material>
@@ -130,12 +129,11 @@ Example:
         </paper-material>
       </template>
     </div>
-</template>
+  </template>
 </dom-module>
 <script>
 Polymer({
   is: 'smarter-leaner',
-
   properties: {
     owner: {
       type: String,
@@ -176,5 +174,6 @@ Polymer({
   computeUrl: function(owner, repo) {
     return ['https://api.github.com/repos', owner, repo, 'issues'].join('/')
   }
+  
 })
 </script>
