@@ -15,6 +15,14 @@
     <paper-fab on-tap="add" icon="add" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;">Add</paper-fab>
     <paper-dialog>
       <paper-input value="{{title}}" label="title"></paper-input>
+      <paper-dropdown-menu value={{picked}} label="label">
+        <paper-listbox class="dropdown-content">
+          <paper-item>review</paper-item>
+          <paper-item>done</paper-item>
+          <paper-item>active</paper-item>
+          <paper-item>story</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
       <div class="buttons">
         <paper-button dialog-confirm on-tap="_add" raised on-tap="toggleView">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
@@ -37,9 +45,10 @@ Polymer({
   _add: function() {
     if (this.title) {
       var issue = {
-        title: this.title
+        title: this.title,
+        label: [{name: this.picked}]
       }
-      this.$.e.push(this)
+      this.$.e.push(issue)
       this.$$('paper-dialog').close()
     }
   },
