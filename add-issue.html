@@ -46,7 +46,7 @@ Polymer({
     if (this.title) {
       var issue = {
         title: this.title,
-        label: [{name: this.picked}]
+        labels: [{name: this.picked}]
       }
       this.$.e.push(issue)
       this.$$('paper-dialog').close()
