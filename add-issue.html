@@ -6,6 +6,10 @@
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../mediator-data/mediator-data.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+
 
 <!--
 `<add-issue></add-issue>`
@@ -17,10 +21,10 @@
       <paper-input value="{{title}}" label="title"></paper-input>
       <paper-dropdown-menu value={{picked}} label="label">
         <paper-listbox class="dropdown-content">
+          <paper-item>story</paper-item>
+          <paper-item>active</paper-item>
           <paper-item>review</paper-item>
           <paper-item>done</paper-item>
-          <paper-item>active</paper-item>
-          <paper-item>story</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
       <div class="buttons">
