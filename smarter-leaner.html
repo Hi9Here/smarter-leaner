@@ -71,10 +71,8 @@ Example:
       }
     </style>
     <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}"></iron-ajax>
-    <template is="dom-if" if="{{location}}">
-      <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="agile" default-folder="default/agile"></mediator-data>
-      <add-data data="{{response}}" add="{{_data}}" output="{{_both}}"></add-data>
-    </template>
+    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="agile" default-folder="default/agile"></mediator-data>
+    <add-data data="{{response}}" add="{{_data}}" output="{{data}}"></add-data>
     <div id="headTitle">
       <h2>Smarter Leaner</h2>
     </div>
@@ -150,7 +148,6 @@ Polymer({
     url: {
       computed: 'computeUrl(owner, repo)', type: String
     },
-    data: {computed: 'getData(response)'},
     location: String
   },
   filterReview: function(item){
@@ -178,9 +175,6 @@ Polymer({
   },
   computeUrl: function(owner, repo) {
     return ['https://api.github.com/repos', owner, repo, 'issues'].join('/')
-  },
-  getData: function(response) {
-    return this._both || response
   }
 })
 </script>
