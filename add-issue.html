@@ -14,14 +14,13 @@
   <template>
     <paper-fab on-tap="add" icon="add" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;">Add</paper-fab>
     <paper-dialog>
-      <input-save path="description" markdown textarea value="{{_description}}" label="Tell me about the element (markdown)"></input-save>
+      <paper-input value="{{title}}" label="title"></paper-input>
       <div class="buttons">
-        <a href="/bower_components/pair-production/demo.html"><paper-button>help you make it?</paper-button></a>
         <paper-button dialog-confirm on-tap="_add" raised on-tap="toggleView">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
       </div>
     </paper-dialog>
-    <mediator-data id="e" location="https://open-elements.firebaseio.com/add-this/" folder="add" as-array="{{elements}}"></mediator-data>
+    <mediator-data id="e" location="https://hi9-devplatform.firebaseio.com/default/" folder="agile"></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -36,8 +35,11 @@ Polymer({
     }
   },
   _add: function() {
-    if (this._description) {
-      this.$.e.push(this._description)
+    if (this.title) {
+      var issue = {
+        title: this.title
+      }
+      this.$.e.push(this)
       this.$$('paper-dialog').close()
     }
   },
