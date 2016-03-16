@@ -85,7 +85,7 @@ Example:
     <div id="cols">
     <div id="col1" class="column-group">
       <h3>Story</h3>
-      <template is="dom-repeat" items="{{response}}" filter="filterStory">
+      <template is="dom-repeat" items="{{data}}" filter="filterStory">
         <a href="{{item.html_url}}">
         <paper-material elevation="1">
           <div>
@@ -104,7 +104,7 @@ Example:
     </div>
     <div id="col2" class="column-group">
       <h3>Active</h3>
-      <template is="dom-repeat" items="{{response}}" filter="filterActive">
+      <template is="dom-repeat" items="{{data}}" filter="filterActive">
         <paper-material elevation="1">
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
@@ -114,7 +114,7 @@ Example:
     </div>
     <div id="col3" class="column-group">
       <h3>Review</h3>
-      <template is="dom-repeat" items="{{response}}" filter="filterReview">
+      <template is="dom-repeat" items="{{data}}" filter="filterReview">
         <paper-material elevation="1">
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
