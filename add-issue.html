@@ -5,7 +5,6 @@
 <link rel="import" href="../paper-fab/paper-fab.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../mediator-data/mediator-data.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../paper-item/paper-item.html">
@@ -32,7 +31,6 @@
         <paper-button dialog-dismiss>Cancel</paper-button>
       </div>
     </paper-dialog>
-    <mediator-data id="e" location="https://hi9-devplatform.firebaseio.com/default/" folder="agile"></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -52,7 +50,7 @@ Polymer({
         title: this.title,
         labels: [{name: this.picked}]
       }
-      this.$.e.push(issue)
+      this.data.push(issue)
       this.$$('paper-dialog').close()
     }
   },
