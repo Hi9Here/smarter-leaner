@@ -37,7 +37,7 @@
 Polymer({
   is: 'add-issue',
   properties: {
-    elements: Array
+    data:{type: Array, notify: true}
   }, 
   _checkAdd: function(e) {
     if (e.keyCode === 13) {
