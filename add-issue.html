@@ -50,7 +50,7 @@ Polymer({
         title: this.title,
         labels: [{name: this.picked}]
       }
-      this.data.push(issue)
+      this.set("data",this.data.concat([issue]))
       this.$$('paper-dialog').close()
     }
   },
