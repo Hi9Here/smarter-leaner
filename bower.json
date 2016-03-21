@@ -9,7 +9,6 @@
   ],
   "main": "smarter-leaner.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
   "ignore": [
     "/.*",
     "/test/"
@@ -18,7 +17,8 @@
     "polymer": "Polymer/polymer#^1.1.0",
     "iron-ajax": "Polymerelements/iron-ajax#~1.1.1",
     "paper-input": "PolymerElements/paper-input#~1.1.9",
-    "add-data": "marcus7777/add-data"
+    "add-data": "marcus7777/add-data",
+    "paper-context-dropdown": "marcus7777/paper-context-dropdown"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
