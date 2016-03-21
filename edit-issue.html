@@ -2,7 +2,6 @@
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-input/paper-input.html">
-<link rel="import" href="../paper-fab/paper-fab.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
@@ -15,7 +14,6 @@
 -->
 <dom-module id="edit-issue">
   <template>
-    <paper-fab on-tap="edit" icon="edit" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;">edit</paper-fab>
     <paper-dialog>
       <paper-input value="{{title}}" on-keyup="_checkEdit" label="title"></paper-input>
       <paper-dropdown-menu value={{picked}} label="label">
@@ -37,7 +35,8 @@
 Polymer({
   is: 'edit-issue',
   properties: {
-    data:{type: Array, notify: true}
+    picked: {notify:true},
+    title: {notify:true},
   }, 
   _checkEdit: function(e) {
     if (e.keyCode === 13) {
