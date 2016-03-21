@@ -1,0 +1,65 @@
+<link rel="import" href="../pair-production/input-save.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+
+
+<!--
+`<edit-issue></edit-issue>`
+-->
+<dom-module id="edit-issue">
+  <template>
+    <paper-fab on-tap="edit" icon="edit" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;">edit</paper-fab>
+    <paper-dialog>
+      <paper-input value="{{title}}" on-keyup="_checkEdit" label="title"></paper-input>
+      <paper-dropdown-menu value={{picked}} label="label">
+        <paper-listbox class="dropdown-content">
+          <paper-item>story</paper-item>
+          <paper-item>active</paper-item>
+          <paper-item>review</paper-item>
+          <paper-item>done</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="buttons">
+        <paper-button dialog-confirm on-tap="_edit" raised on-tap="toggleView">edit</paper-button>
+        <paper-button dialog-dismiss>Cancel</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+</dom-module>
+<script>
+Polymer({
+  is: 'edit-issue',
+  properties: {
+    data:{type: Array, notify: true}
+  }, 
+  _checkEdit: function(e) {
+    if (e.keyCode === 13) {
+      this._edit()
+    }
+  },
+  _edit: function() {
+    if (this.title) {
+      var issue = {
+        title: this.title,
+        labels: [{name: this.picked}]
+      }
+      if (this.data) {
+        this.set("data",this.data.concat([issue]))
+      } else {
+        this.set("data",[issue])
+      }
+      this.$$('paper-dialog').close()
+    }
+  },
+  edit: function() {
+    this.$$('paper-dialog').open()
+  }
+});
+</script>
