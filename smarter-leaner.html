@@ -146,7 +146,7 @@ Example:
       <template is="dom-repeat" items="{{data}}" filter="filterDone" >
         <paper-material elevation="1">
           <template is="dom-if" if="{{!item.html_url}}">
-            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+            <edit-issue item="{{item}}"></edit-issue>
           </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
