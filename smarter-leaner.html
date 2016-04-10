@@ -97,7 +97,11 @@ Example:
       <h3>Story</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterStory">
         <a href="{{item.html_url}}">
-        <paper-material elevation="1"><iron-icon on-tap=edit icon=more-vert></iron-icon>
+        <paper-material elevation="1">
+          <template is="dom-if" if="{{!item.html_url}}">
+            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+          </template>
+          
           <div>
             {{item.title}}
           </div>
@@ -114,7 +118,7 @@ Example:
     <div id="col2" class="column-group">
       <h3>Active</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterActive">
-        <paper-material elevation="1"><iron-icon on-tap=edit icon=more-vert></iron-icon>
+        <paper-material elevation="1"><iron-icon on-tap="edit icon=more-vert></iron-icon>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
           </div>
