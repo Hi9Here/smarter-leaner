@@ -118,7 +118,10 @@ Example:
     <div id="col2" class="column-group">
       <h3>Active</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterActive">
-        <paper-material elevation="1"><iron-icon on-tap="edit icon=more-vert></iron-icon>
+        <paper-material elevation="1">
+          <template is="dom-if" if="{{!item.html_url}}">
+            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+          </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
           </div>
@@ -128,7 +131,10 @@ Example:
     <div id="col3" class="column-group">
       <h3>Review</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterReview">
-        <paper-material elevation="1"><iron-icon on-tap=edit icon=more-vert></iron-icon>
+        <paper-material elevation="1">
+          <template is="dom-if" if="{{!item.html_url}}">
+            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+          </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
           </div>
@@ -138,7 +144,10 @@ Example:
     <div id="col4" class="column-group">
       <h3>Done</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterDone" >
-        <paper-material elevation="1"><iron-icon on-tap=edit icon=more-vert></iron-icon>
+        <paper-material elevation="1">
+          <template is="dom-if" if="{{!item.html_url}}">
+            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+          </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
           </div>
