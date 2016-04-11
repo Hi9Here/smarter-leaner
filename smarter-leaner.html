@@ -51,6 +51,7 @@ Example:
       .column-group {
         float: left;
         margin-left: 20px;
+        clear: left;
       }
       .assigned {
         margin-top: 20px;
@@ -70,10 +71,6 @@ Example:
         margin-bottom: 20px;
         clear: right;
       }
-      #cols {
-        float: left;
-        clear: left;
-      }
       h2 {
         font-family: Roboto, Helvetica, Arial, sans-serif;
         weight: 300;
@@ -86,7 +83,6 @@ Example:
       <paper-input label="Github Owner" value="{{owner}}"></paper-input>
       <paper-input label="Github Repo" value={{repo}}></paper-input>
     </div>
-    <div id="cols">
     <div id="col1" class="column-group">
       <h3>Story</h3>
       <template is="dom-repeat" items="{{data}}" filter="filterStory">
