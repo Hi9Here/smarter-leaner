@@ -80,7 +80,7 @@ Example:
       }
     </style>
     <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}"></iron-ajax>
-    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="folder" default-folder="default/agile"></mediator-data>
+    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="{{folder}}" default-folder="default/agile"></mediator-data>
     <add-data data="{{response}}" add="{{_data}}" output="{{data}}"></add-data>
     <div id="input">
       <paper-input label="Github Owner" value="{{owner}}"></paper-input>
