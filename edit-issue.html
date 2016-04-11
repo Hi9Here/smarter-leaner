@@ -14,7 +14,7 @@
 <dom-module id="edit-issue">
   <template>
     <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
-    <paper-dialog>
+    <paper-dialog style="background:#fff">
       <paper-input value="{{item.title}}" on-keyup="_checkEdit" label="title"></paper-input>
       <paper-dropdown-menu value="{{item.labels.name}}" label="label">
         <paper-listbox class="dropdown-content">
