@@ -56,10 +56,11 @@ Polymer({
   },
   _edit: function() {
     // save
+    this.fire("update")
   },
   _delete: function() {
     this.item.archive = true
-    // save
+    this.fire("update")
   },
   edit: function() {
     this.$$('paper-dialog').open()
