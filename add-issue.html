@@ -48,7 +48,7 @@ Polymer({
     if (this.title) {
       var issue = {
         title: this.title,
-        labels: [{name: this.picked}]
+        col: this.picked
       }
       if (this.data) {
         this.set("data",this.data.concat([issue]))
