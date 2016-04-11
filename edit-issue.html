@@ -13,6 +13,18 @@
 -->
 <dom-module id="edit-issue">
   <template>
+    <style>
+      iron-icon {
+        /* display:none; 
+      }
+      iron-icon {
+        display:block; */
+        color:gray;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    </style>
     <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
     <paper-dialog style="background:#fff">
       <paper-input value="{{item.title}}" on-keyup="_checkEdit" label="title"></paper-input>
