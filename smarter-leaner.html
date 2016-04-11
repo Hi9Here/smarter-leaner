@@ -11,7 +11,7 @@ An element providing an agile board.
 
 Example:
 
-    <smarter-leaner></smarter-leaner>
+  <smarter-leaner></smarter-leaner>
 
 @element smarter-leaner
 @demo demo/index.html
@@ -75,9 +75,8 @@ Example:
         weight: 300;
       }
     </style>
-    <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}"></iron-ajax>
-    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="{{folder}}" default-folder="default/agile"></mediator-data>
-    <add-data data="{{response}}" add="{{_data}}" output="{{data}}"></add-data>
+    <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{github}}"></iron-ajax>
+    <mediator-data as-array="{{data}}" edit-default location="{{location}}" folder="{{folder}}" default-folder="default/agile"></mediator-data>
     <div id="input">
       <paper-input label="Github Owner" value="{{owner}}"></paper-input>
       <paper-input label="Github Repo" value={{repo}}></paper-input>
@@ -85,61 +84,81 @@ Example:
     <div style="clear:both"></div>
     <div id="col1" class="column-group">
       <h3>Story</h3>
-      <template is="dom-repeat" items="{{data}}" filter="filterStory">
+      <template is="dom-repeat" items="{{github}}" filter="filterStory">
         <a href="{{item.html_url}}">
-        <paper-material elevation="1">
-          <template is="dom-if" if="{{!item.html_url}}">
-            <edit-issue item="{{item}}"></edit-issue>
-          </template>
-          <div>
-            {{item.title}}
-          </div>
-          <div class="issuelabels">
-            {{item.labels.name}}
-          </div>
-          <div class="assigned">
-            {{item.assignee.login}}
-          </div>
-        </paper-material>
+          <paper-material elevation="1">
+            <div>{{item.title}}</div>
+            <div class="issuelabels">{{item.labels.name}}</div>
+            <div class="assigned">{{item.assignee.login}}</div>
+          </paper-material>
         </a>
+      </template>
+      <template is="dom-repeat" items="{{data}}" filter="filterStory">
+        <paper-material elevation="1">
+          <edit-issue item="{{item}}"></edit-issue>
+          <div>{{item.title}}</div>
+          <div class="issuelabels">{{item.labels.name}}</div>
+          <div class="assigned">{{item.assignee.login}}</div>
+        </paper-material>
       </template>
     </div>
     <div id="col2" class="column-group">
       <h3>Active</h3>
+      <template is="dom-repeat" items="{{github}}" filter="filterActive">
+        <a href="{{item.html_url}}">
+          <paper-material elevation="1">
+            <div>{{item.title}}</div>
+            <div class="issuelabels">{{item.labels.name}}</div>
+            <div class="assigned">{{item.assignee.login}}</div>
+          </paper-material>
+        </a>
+      </template>
       <template is="dom-repeat" items="{{data}}" filter="filterActive">
         <paper-material elevation="1">
-          <template is="dom-if" if="{{!item.html_url}}">
-            <edit-issue item="{{item}}"></edit-issue>
-          </template>
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
+          <edit-issue item="{{item}}"></edit-issue>
+          <div>{{item.title}}</div>
+          <div class="issuelabels">{{item.labels.name}}</div>
+          <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
       </template>
     </div>
     <div id="col3" class="column-group">
       <h3>Review</h3>
+      <template is="dom-repeat" items="{{github}}" filter="filterReview">
+        <a href="{{item.html_url}}">
+          <paper-material elevation="1">
+            <div>{{item.title}}</div>
+            <div class="issuelabels">{{item.labels.name}}</div>
+            <div class="assigned">{{item.assignee.login}}</div>
+          </paper-material>
+        </a>
+      </template>
       <template is="dom-repeat" items="{{data}}" filter="filterReview">
         <paper-material elevation="1">
-          <template is="dom-if" if="{{!item.html_url}}">
-            <edit-issue item="{{item}}"></edit-issue>
-          </template>
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
+          <edit-issue item="{{item}}"></edit-issue>
+          <div>{{item.title}}</div>
+          <div class="issuelabels">{{item.labels.name}}</div>
+          <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
       </template>
     </div>
     <div id="col4" class="column-group">
       <h3>Done</h3>
-      <template is="dom-repeat" items="{{data}}" filter="filterDone" >
+      <template is="dom-repeat" items="{{github}}" filter="filterDone">
+        <a href="{{item.html_url}}">
+          <paper-material elevation="1">
+            <div>{{item.title}}</div>
+            <div class="issuelabels">{{item.labels.name}}</div>
+            <div class="assigned">{{item.assignee.login}}</div>
+          </paper-material>
+        </a>
+      </template>
+      <template is="dom-repeat" items="{{data}}" filter="filterDone">
         <paper-material elevation="1">
-          <template is="dom-if" if="{{!item.html_url}}">
-            <edit-issue item="{{item}}"></edit-issue>
-          </template>
-          <div>
-            <a href="{{item.html_url}}">{{item.title}}</a>
-          </div>
+          <edit-issue item="{{item}}"></edit-issue>
+          <div>{{item.title}}</div>
+          <div class="issuelabels">{{item.labels.name}}</div>
+          <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
       </template>
     </div>
