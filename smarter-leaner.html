@@ -78,12 +78,9 @@ Example:
         font-family: Roboto, Helvetica, Arial, sans-serif;
         weight: 300;
       }
-      #headTitle {
-        margin-left: 50px;
-      }
     </style>
     <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{response}}"></iron-ajax>
-    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="agile" default-folder="default/agile"></mediator-data>
+    <mediator-data as-array="{{_data}}" edit-default location="{{location}}" folder="folder" default-folder="default/agile"></mediator-data>
     <add-data data="{{response}}" add="{{_data}}" output="{{data}}"></add-data>
     <div id="input">
       <paper-input label="Github Owner" value="{{owner}}"></paper-input>
@@ -172,6 +169,9 @@ Polymer({
     url: {
       computed: 'computeUrl(owner, repo)', type: String
     },
+    folder: {
+      computed: 'computeFolder(owner, repo)', type: String
+    },
     location: String
   },
   filterReview: function(item){
@@ -199,6 +199,9 @@ Polymer({
   },
   computeUrl: function(owner, repo) {
     return ['https://api.github.com/repos', owner, repo, 'issues'].join('/')
+  },
+  computeUrl: function(owner, repo) {
+    return ['agile', owner, repo].join('_')
   }
 })
 </script>
