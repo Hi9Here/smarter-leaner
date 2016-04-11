@@ -192,12 +192,18 @@ Polymer({
   },
   filterBy: function(by, a){
     var index
-    if (a.labels) {
+    if (Array.isArray(a.labels)) {
       for (var index = 0; index < a.labels.length; ++index) {
         if (a.labels[index].name === by) {
           return true
         }
       }
+    } else if (typeof a.labels === 'string') {
+      return by === a.labels
+    } else if (typeof a.col === 'string') {
+      return by === a.col
+    } else if (typeof a.label === 'string') {
+      return by === a.label
     }
     return false
   },
