@@ -93,7 +93,7 @@ Example:
         <a href="{{item.html_url}}">
         <paper-material elevation="1">
           <template is="dom-if" if="{{!item.html_url}}">
-            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+            <edit-issue item="{{item}}"></edit-issue>
           </template>
           <div>
             {{item.title}}
@@ -113,7 +113,7 @@ Example:
       <template is="dom-repeat" items="{{data}}" filter="filterActive">
         <paper-material elevation="1">
           <template is="dom-if" if="{{!item.html_url}}">
-            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+            <edit-issue item="{{item}}"></edit-issue>
           </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
@@ -126,7 +126,7 @@ Example:
       <template is="dom-repeat" items="{{data}}" filter="filterReview">
         <paper-material elevation="1">
           <template is="dom-if" if="{{!item.html_url}}">
-            <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
+            <edit-issue item="{{item}}"></edit-issue>
           </template>
           <div>
             <a href="{{item.html_url}}">{{item.title}}</a>
