@@ -84,7 +84,7 @@ Example:
       </template>
       <template id="a" is="dom-repeat" items="{{data}}" filter="filterStory">
         <paper-material elevation="1">
-          <edit-issue item="{{item}}"></edit-issue>
+          <edit-issue on-update-lists="updateLists" item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
           <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
@@ -102,7 +102,7 @@ Example:
       </template>
       <template id="b" is="dom-repeat" items="{{data}}" filter="filterActive">
         <paper-material elevation="1">
-          <edit-issue item="{{item}}"></edit-issue>
+          <edit-issue on-update-lists="updateLists" item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
           <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
@@ -120,7 +120,7 @@ Example:
       </template>
       <template id="c" is="dom-repeat" items="{{data}}" filter="filterReview">
         <paper-material elevation="1">
-          <edit-issue item="{{item}}"></edit-issue>
+          <edit-issue on-update-lists="updateLists" item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
           <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
@@ -138,13 +138,13 @@ Example:
       </template>
       <template id="d" is="dom-repeat" items="{{data}}" filter="filterDone">
         <paper-material elevation="1">
-          <edit-issue item="{{item}}"></edit-issue>
+          <edit-issue on-update-lists="updateLists" item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
           <div class="assigned">{{item.assignee.login}}</div>
         </paper-material>
       </template>
     </div>
-    <add-issue on-update="update" data="{{data}}"></add-issue>
+    <add-issue on-update-lists="updateLists" data="{{data}}"></add-issue>
   </template>
 </dom-module>
 <script>
