@@ -60,7 +60,7 @@ Polymer({
   },
   _delete: function() {
     this.item.archive = true
-    this.fire("updateLists")
+    this.fire("update-lists")
   },
   edit: function() {
     this.$$('paper-dialog').open()
