@@ -95,7 +95,6 @@ Example:
           <template is="dom-if" if="{{!item.html_url}}">
             <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
           </template>
-          
           <div>
             {{item.title}}
           </div>
@@ -200,7 +199,7 @@ Polymer({
   computeUrl: function(owner, repo) {
     return ['https://api.github.com/repos', owner, repo, 'issues'].join('/')
   },
-  computeUrl: function(owner, repo) {
+  computeFolder: function(owner, repo) {
     return ['agile', owner, repo].join('_')
   }
 })
