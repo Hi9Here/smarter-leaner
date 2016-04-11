@@ -82,7 +82,7 @@ Example:
           </paper-material>
         </a>
       </template>
-      <template is="dom-repeat" items="{{data}}" filter="filterStory">
+      <template id="a" is="dom-repeat" items="{{data}}" filter="filterStory">
         <paper-material elevation="1">
           <edit-issue item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
@@ -100,7 +100,7 @@ Example:
           </paper-material>
         </a>
       </template>
-      <template is="dom-repeat" items="{{data}}" filter="filterActive">
+      <template id="b" is="dom-repeat" items="{{data}}" filter="filterActive">
         <paper-material elevation="1">
           <edit-issue item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
@@ -118,7 +118,7 @@ Example:
           </paper-material>
         </a>
       </template>
-      <template is="dom-repeat" items="{{data}}" filter="filterReview">
+      <template id="c" is="dom-repeat" items="{{data}}" filter="filterReview">
         <paper-material elevation="1">
           <edit-issue item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
@@ -136,7 +136,7 @@ Example:
           </paper-material>
         </a>
       </template>
-      <template is="dom-repeat" items="{{data}}" filter="filterDone">
+      <template id="d" is="dom-repeat" items="{{data}}" filter="filterDone">
         <paper-material elevation="1">
           <edit-issue item="{{item}}"></edit-issue>
           <div>{{item.title}}</div>
@@ -144,7 +144,7 @@ Example:
         </paper-material>
       </template>
     </div>
-    <add-issue data="{{data}}"></add-issue>
+    <add-issue on-update="update" data="{{data}}"></add-issue>
   </template>
 </dom-module>
 <script>
@@ -183,8 +183,9 @@ Polymer({
     return this.filterBy("story",item)
   },
   filterBy: function(by, a){
-    var index
-    if (Array.isArray(a.labels)) {
+    if (a.archive) {
+      return false
+    } else if (Array.isArray(a.labels)) {
       for (var index = 0; index < a.labels.length; ++index) {
         if (a.labels[index].name === by) {
           return true
@@ -204,6 +205,12 @@ Polymer({
   },
   computeFolder: function(owner, repo) {
     return ['agile', owner, repo].join('_')
+  },
+  update: function() {
+    this.$.a.render()
+    this.$.b.render()
+    this.$.c.render()
+    this.$.d.render()
   }
 })
 </script>
