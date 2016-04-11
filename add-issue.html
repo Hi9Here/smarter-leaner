@@ -1,4 +1,3 @@
-<link rel="import" href="../pair-production/input-save.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-input/paper-input.html">
@@ -48,7 +47,7 @@ Polymer({
     if (this.title) {
       var issue = {
         title: this.title,
-        col: this.picked
+        labels: [{name: this.picked}]
       }
       if (this.data) {
         this.set("data",this.data.concat([issue]))
