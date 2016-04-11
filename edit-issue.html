@@ -16,8 +16,8 @@
   <template>
     <iron-icon on-tap="edit" icon="more-vert"></iron-icon>
     <paper-dialog>
-      <paper-input value="{{title}}" on-keyup="_checkEdit" label="title"></paper-input>
-      <paper-dropdown-menu value={{picked}} label="label">
+      <paper-input value="{{item.title}}" on-keyup="_checkEdit" label="title"></paper-input>
+      <paper-dropdown-menu value="{{item.labels.0.name}}" label="label">
         <paper-listbox class="dropdown-content">
           <paper-item>story</paper-item>
           <paper-item>active</paper-item>
@@ -36,8 +36,7 @@
 Polymer({
   is: 'edit-issue',
   properties: {
-    picked: {notify:true},
-    title: {notify:true},
+    item: {notify:true}
   }, 
   _checkEdit: function(e) {
     if (e.keyCode === 13) {
@@ -45,18 +44,7 @@ Polymer({
     }
   },
   _edit: function() {
-    if (this.title) {
-      var issue = {
-        title: this.title,
-        labels: [{name: this.picked}]
-      }
-      if (this.data) {
-        this.set("data",this.data.concat([issue]))
-      } else {
-        this.set("data",[issue])
-      }
-      this.$$('paper-dialog').close()
-    }
+    // save
   },
   edit: function() {
     this.$$('paper-dialog').open()
