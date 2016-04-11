@@ -37,7 +37,8 @@
         </paper-listbox>
       </paper-dropdown-menu>
       <div class="buttons">
-        <paper-button dialog-confirm on-tap="_edit" raised on-tap="toggleView">✅</paper-button>
+        <paper-button dialog-confirm on-tap="_delete" raised>✅</paper-button>
+        <paper-button dialog-confirm on-tap="_edit" raised>✅</paper-button>
       </div>
     </paper-dialog>
   </template>
@@ -54,6 +55,10 @@ Polymer({
     }
   },
   _edit: function() {
+    // save
+  },
+  _delete: function() {
+    this.item.archive = true
     // save
   },
   edit: function() {
